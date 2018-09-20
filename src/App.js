@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import { fetchData } from "./actions/index";
+import { fetchQuery } from "./actions/index";
 import './App.css';
 
 class App extends Component {
-  componentDidMount() {
-
-  }
-
   render() {
     return (
       <div className="App">
@@ -25,7 +21,7 @@ class App extends Component {
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ fetchData }, dispatch);
+  return bindActionCreators({ fetchQuery }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(App);

@@ -1,12 +1,14 @@
-import { FETCH_DATA } from "./types";
+import { FETCH_QUERY } from "./types";
 import axios from "axios";
 
-export function fetchData() {
+export const fetchQuery = query => {
   const APP_ID = "";
   const APP_KEY = "";
-  const response = axios.get(`https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=3&calories=591-722&health=alcohol-free`);
+
+  const response = axios.get(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`).then(response => response);
+
   return {
-    type: FETCH_DATA,
+    type: FETCH_QUERY,
     payload: response
   }
 }
