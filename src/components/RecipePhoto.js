@@ -3,7 +3,8 @@ import { Card, Col } from "antd";
 
 const { Meta } = Card;
 
-const RecipePhoto = props => {
+const RecipePhoto = (props) => {
+  console.log(props);
   const {
     props: { label, image }
   } = props;

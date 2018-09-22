@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Row, Spin } from "antd";
+import { Link } from "react-router-dom";
 
 import "antd/dist/antd.css";
 import "../styles/RecipeList.css";
@@ -13,7 +14,12 @@ class RecipeList extends Component {
     const { recipes: { items: recipies } } = this.props;
     return recipies.map(recipe => {
       const data = recipe.recipe;
-      return <RecipePhoto props={data} key={data.calories}/>
+      const id = data.totalWeight;
+      return (
+        <Link key={id} to={`/${id}`} >
+          <RecipePhoto props={data}/>
+        </Link>
+      )
     })
   }
 
