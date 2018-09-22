@@ -40,8 +40,8 @@ class SingleRecipe extends Component {
         </Col>
         <Col span={12}>
           <h2>{recipe.label}</h2>
-          {recipe.healthLabels.map(label => {
-            return <Tag color="cyan">{label}</Tag>;
+          {recipe.healthLabels.map((label, index) => {
+            return <Tag color="cyan" key={index}>{label}</Tag>;
           })}
           <List 
             header={<h3>Ingredients</h3>}
@@ -50,6 +50,7 @@ class SingleRecipe extends Component {
             dataSource={ingredients}
             renderItem={(item, index) => (<List.Item>{item}</List.Item>)}
           />
+          <p>For full recipe go to <a href={recipe.url}>{recipe.source}</a></p>
         </Col>
       </Row>
     );
