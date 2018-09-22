@@ -3,14 +3,16 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import { fetchQuery } from "./actions/index";
-import './App.css';
+import "./App.css";
 import SearchBar from "./containers/SearchBar";
+import RecipeList from "./containers/RecipeList";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <SearchBar />
+        <RecipeList />
       </div>
     );
   }
