@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchQuery } from "../actions/index";
 
+import "../styles/SearchBar.css";
+
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -22,8 +24,10 @@ class SearchBar extends Component {
 
   onFormSubmit(event) {
     event.preventDefault();
-    console.log(event)
     this.props.fetchQuery(this.state.term);
+    this.setState({
+      term: ""
+    });
   }
 
   render() {
