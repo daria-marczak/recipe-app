@@ -2,5 +2,6 @@ form input {
   border: none;
   margin-top: 2rem;
   border-bottom: 1px solid lightgrey;
-  padding-bottom: 0.5rem;
+  padding-bottom: .5rem;
+  margin-bottom: 2rem;
 }

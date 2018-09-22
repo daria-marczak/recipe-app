@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { Spin } from "antd";
+import { Row, Spin } from "antd";
+
+import "antd/dist/antd.css";
+import "../styles/RecipeList.css";
 
 import RecipePhoto from "../components/RecipePhoto";
 
@@ -8,22 +11,18 @@ class RecipeList extends Component {
 
   renderRecipes() {
     const { recipes: { items: recipies } } = this.props;
-    console.log(recipies);
-
     return recipies.map(recipe => {
       const data = recipe.recipe;
-      console.log(data);
-
-      return <RecipePhoto props={data}/>
+      return <RecipePhoto props={data} key={data.calories}/>
     })
   }
 
   render() {
+    const { recipes: { isFetching } } = this.props;
     return (
-      <React.Fragment>
-        <h2>I'm a recipe list</h2>
-        {this.renderRecipes()}
-      </React.Fragment>
+      <Row gutter={8} >
+        {isFetching === true ? <Spin /> : this.renderRecipes()}
+      </Row>
     )
   }
 }
