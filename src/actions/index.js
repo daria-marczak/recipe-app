@@ -13,13 +13,18 @@ export const setQuery = payload => ({
 
 export const fetchQuery = query => dispatch => {
   dispatch(fetchingQuery());
-  console.log("Dispatching fetch query")
   const APP_ID = "";
   const APP_KEY = "";
+  const root = "https://api.edamam.com/search?q="
 
-  const response = axios.get(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`).then(response => dispatch(setQuery(response))).then(dispatch(fetchingQuery(false)));
+  const response = axios
+    .get(
+      `${root}q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
+    )
+    .then(response => dispatch(setQuery(response)))
+    .then(dispatch(fetchingQuery(false)));
   return {
     type: FETCH_QUERY,
     payload: response
-  }
-}
+  };
+};

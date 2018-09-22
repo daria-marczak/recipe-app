@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+// import { Spin } from "antd";
+
+import RecipePhoto from "../components/RecipePhoto";
 
 class RecipeList extends Component {
-  componentDidMount() {
-    console.log(this.props);
-  }
 
   renderRecipes() {
-    const { recipes } = this.props;
-    console.log(recipes);
+    const { recipes: { items: recipies } } = this.props;
+    console.log(recipies);
 
+    return recipies.map(recipe => {
+      const data = recipe.recipe;
+      console.log(data);
+
+      return <RecipePhoto props={data}/>
+    })
   }
 
   render() {
